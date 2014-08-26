@@ -22,18 +22,28 @@ classdef ThirteenCC < Concavity
             new_descriptor(4) = fourcc_descriptor(9+1);
             
             %Los que chocan en 3 partes:
-            % Contar los que no chocan en 0, índice 8+2+4 = 14
-            new_descriptor(5) = fourcc_descriptor(14+1);
-            % Contar los que no chocan en 1, índice 2+1+8 = 11
-            new_descriptor(6) = fourcc_descriptor(11+1);
-            % Contar los que no chocan en 2, índice 8+4+1 = 13
-            new_descriptor(7) = fourcc_descriptor(13+1);
-            % Contar los que no chocan en 3, índice 1+2+4 = 7
-            new_descriptor(8) = fourcc_descriptor(7+1);
+            % Contar los que no chocan en 0, índice 1
+            new_descriptor(5) = fourcc_descriptor(1+1);
+            % Contar los que no chocan en 1, índice 4
+            new_descriptor(6) = fourcc_descriptor(4+1);
+            % Contar los que no chocan en 2, índice 2
+            new_descriptor(7) = fourcc_descriptor(2+1);
+            % Contar los que no chocan en 3, índice 8
+            new_descriptor(8) = fourcc_descriptor(8+1);
             
             % Iterar sobre los que chocan en las 4 direcciones, índice 1+2+4+8 = 15
-            
-            
+            new_concavity_matrix = p.concavity_matrix;
+            new_concavity_matrix(binarized == 0) = 16;
+            [rows cols] = find(new_concavity_matrix == 0);
+            for i = 1:length(rows)
+                r = rows(i);
+                c = cols(i);
+                while new_concavity_matrix(r,c) ~= 16
+                    element = new_concavity_matrix(r,c);
+                    if (element >= 8) % Sale por la izquierda
+                    end
+                end
+            end
             
             
             
