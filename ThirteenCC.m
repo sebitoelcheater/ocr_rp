@@ -31,7 +31,10 @@ classdef ThirteenCC < Concavity
             % Contar los que no chocan en 3, índice 1+2+4 = 7
             new_descriptor(8) = fourcc_descriptor(7+1);
             
-            % Iterar sobre los que chocan en las 4 direcciones.
+            % Iterar sobre los que chocan en las 4 direcciones, índice 1+2+4+8 = 15
+            
+            
+            
             
             
             
