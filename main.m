@@ -24,10 +24,12 @@ end
 % descripción de concavidad
 fourcc_dataset = Dataset(train_pictures, FourCC);
 eight_dataset = Dataset(train_pictures, EightCC);
-thirteen_dataset = Dataset(train_pictures, ThirteenCC);
+%thirteen_dataset = Dataset(train_pictures, ThirteenCC);
 
 %Evaluar cada imágen del test
-confusion_matrix_5 = fourcc_dataset.evaluate(test_pictures, 'euclidean', 5);
-confusion_matrix_10 = fourcc_dataset.evaluate(test_pictures, 'euclidean', 10);
-confusion_matrix_15 = fourcc_dataset.evaluate(test_pictures, 'euclidean', 15);
-confusion_matrix_20 = fourcc_dataset.evaluate(test_pictures, 'euclidean', 20);
+[cm_4cc_5_e,cm_4cc_10_e,cm_4cc_15_e,cm_4cc_20_e] = fourcc_dataset.evaluate(test_pictures, 'euclidean')
+[cm_4cc_5_m,cm_4cc_10_m,cm_4cc_15_m,cm_4cc_20_m] = fourcc_dataset.evaluate(test_pictures, 'cityblock')
+[cm_8cc_5_e,cm_8cc_10_e,cm_8cc_15_e,cm_8cc_20_e] = eight_dataset.evaluate(test_pictures, 'euclidean')
+[cm_8cc_5_m,cm_8cc_10_m,cm_8cc_15_m,cm_8cc_20_m] = eight_dataset.evaluate(test_pictures, 'cityblock')
+%[cm_13cc_5_e,cm_13cc_10_e,cm_13cc_15_e,cm_13cc_20_e] = thirteen_dataset.evaluate(test_pictures, 'euclidean');
+%[cm_13cc_5_m,cm_13cc_10_m,cm_13cc_15_m,cm_13cc_20_m] = thirteen_dataset.evaluate(test_pictures, 'manhattan');
