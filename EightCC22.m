@@ -82,7 +82,7 @@ classdef EightCC22 < Concavity
             for x = 1:cx
                 for y = 1:cy 
                     for i = 1:16
-                        descriptor(1,i+(k*16)) = sum(sum(concavity_matrix == i-1));
+                        descriptor(1,i+(k*16)) = sum(sum(concavity_matrix(1+(x-1)*nrows/cx:x*nrows/cx,1+(y-1)*ncols/cy:y*ncols/cy) == i-1));
                     end
                 k = k+1;
                 end
