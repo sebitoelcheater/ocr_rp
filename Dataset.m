@@ -45,6 +45,23 @@ classdef Dataset
                 cm_concavity_20(picture.real_class+1, predicted_20+1) = cm_concavity_20(picture.real_class+1, predicted_20+1) + 1;
             end
         end
+        function cc13_e_5 = evaluate_best(self, test_pictures, distance)
+            cm_concavity_5 = zeros(10);
+            cm_concavity_10 = zeros(10);
+            cm_concavity_15 = zeros(10);
+            cm_concavity_20 = zeros(10);
+            for j = 1:length(test_pictures)
+                picture = test_pictures{j};
+                predicted_5 = self.classify(picture, distance, 5);
+                predicted_10 = self.classify(picture, distance, 10);
+                predicted_15 = self.classify(picture, distance, 15);
+                predicted_20 = self.classify(picture, distance, 20);
+                cm_concavity_5(picture.real_class+1, predicted_5+1) = cm_concavity_5(picture.real_class+1, predicted_5+1) + 1;
+                cm_concavity_10(picture.real_class+1, predicted_10+1) = cm_concavity_10(picture.real_class+1, predicted_10+1) + 1;
+                cm_concavity_15(picture.real_class+1, predicted_15+1) = cm_concavity_15(picture.real_class+1, predicted_15+1) + 1;
+                cm_concavity_20(picture.real_class+1, predicted_20+1) = cm_concavity_20(picture.real_class+1, predicted_20+1) + 1;
+            end
+        end
     end
     
 end
